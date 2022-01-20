@@ -64,10 +64,30 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
+1
+
+<!DOCTYPE html>
+
+2
+
+<html >
+
+3
+
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+4
+
+<head>
+
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
+
+19
+
+​
   clear: both;
 }
 
@@ -77,6 +97,10 @@ input[type=submit]:hover {
     width: 100%;
     margin-top: 0;
   }
+
+43
+
+  line-height: 40px; 
 }
 </style>
 </head>
@@ -103,19 +127,18 @@ input[type=submit]:hover {
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-		<input type="text" name="BMI" placeholder="BMI" required="required" />
-        <input type="text" name="Age" placeholder="Age" required="required" />
-	 <input type="text" name="BMI" placeholder="BMI" required="required" />
-        <input type="text" name="Age" placeholder="Age" required="required" />
-	  <input type="text" name="BMI" placeholder="BMI" required="required" />
-        <input type="text" name="Age" placeholder="Age" required="required" />
+		<input type="text" name="Que1" placeholder="Que1" required="required" />
+        <input type="text" name="Que2" placeholder="Que2">
+	 <input type="text" name="Que3" placeholder="Que3">
+        <input type="text" name="Que4" placeholder="Que4" >
+	  <input type="text" name="Que5" placeholder="Que5" >
+        <input type="text" name="Que6" placeholder="Que6">
 	<br> </br>	
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
     
 	
-	<h6> Note: indication for results: 1-yes , 0-No </h6>
 
    {{ prediction_text }}
 
