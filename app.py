@@ -2,7 +2,7 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
-from transformers import pipeline
+# from transformers import pipeline
 import pandas as pd
 import torch
 
