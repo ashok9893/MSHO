@@ -2,7 +2,7 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
-# from transformers import pipeline
+from transformers import pipeline
 import pandas as pd
 # import torch
 
@@ -18,6 +18,8 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
+    tqa = pipeline(task="table-question-answering", 
+               model="google/tapas-base-finetuned-wtq")
     table = pd.read_csv("data.csv")
     table = table.astype(str)
     query = [x for x in request.form.values()]
