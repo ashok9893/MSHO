@@ -19,7 +19,7 @@ def predict():
     '''
     table = pd.read_csv("data.csv")
     table = table.astype(str)
-    float_features = [x for x in request.form.values()]
+    query = [x for x in request.form.values()]
     answer = tqa(table=table, query=query)
     for ans in answer:
         prediction= ans["answer"]
