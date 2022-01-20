@@ -97,17 +97,14 @@ input[type=submit]:hover {
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="Pregnancies" placeholder="Pregnancies" required="required" />
-        <input type="text" name="Glucose" placeholder="Glucose" required="required" />
-		<input type="text" name="BloodPressure" placeholder="BloodPressure" required="required" />
-		<input type="text" name="SkinThickness" placeholder="SkinThickness" required="required" />
-        <input type="text" name="Insulin" placeholder="Insulin" required="required" />
 		<input type="text" name="BMI" placeholder="BMI" required="required" />
         <input type="text" name="Age" placeholder="Age" required="required" />
+        <textarea id="w3review" name="w3review" rows="4" cols="50"> </textarea>
 	<br> </br>	
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
+    
 	
 	<h6> Note: indication for results: 1-yes , 0-No </h6>
 
