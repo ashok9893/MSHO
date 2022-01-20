@@ -1,6 +1,9 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
+from transformers import pipeline
+import pandas as pd
+import torch
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
@@ -14,13 +17,14 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
-    float_features = [float(x) for x in request.form.values()]
-    final_features = [np.array(float_features)]
-    prediction = model.predict(final_features)
-
-    output = round(prediction[0], 6)
-
-    return render_template('index.html', prediction_text='Your diabatic test result is --  {}'.format(output))
+    table = pd.read_csv("data.csv")
+    table = table.astype(str)
+    float_features = [x for x in request.form.values()]
+    answer = tqa(table=table, query=query)
+    for ans in answer:
+        prediction= ans["answer"]
+    
+    return render_template('index.html', prediction_text='Your diabatic test result is --  {}'.format(prediction))
 
 
 if __name__ == "__main__":
