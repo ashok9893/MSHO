@@ -117,15 +117,12 @@ input[type=submit]:hover {
 <div class="container">
  <div class="login">
 	<h1>Welcome</h1>
-	<h3> We will ans your queries about your data </h3>
-  <div class="form">
-        <form action="/action_page.php">
-	<h1>Please upload your data here.</h1>
-        <input type="file" id="myFile" name="filename">
-       <input type="submit">
-       </form>
-  </div> 
-
+	<h3> We will answer your queries about your data </h3>
+  <form action="/action_page.php">
+  <h4>Please upload your data here.</h4> 
+  <input type="file" id="myFile" name="filename">
+</form>
+<br>
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
 		<input type="text" name="Que1" placeholder="Que1" required="required" />
